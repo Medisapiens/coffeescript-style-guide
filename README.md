@@ -274,7 +274,7 @@ In cases where method calls are being chained and the code does not fit on a sin
 When calling functions, choose to omit or include parentheses in such a way that optimizes for readability. Keeping in mind that "readability" can be subjective, the following examples demonstrate cases where parentheses have been omitted or included in a manner that the community deems to be optimal:
 
 ```coffeescript
-baz 12
+baz 12 # Prefer ommitting '(',')', especially in case of single argument functions
 
 brush.ellipse x: 10, y: 20 # Braces can also be omitted or included for readability
 

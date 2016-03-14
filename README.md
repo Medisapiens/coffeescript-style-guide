@@ -21,6 +21,9 @@ The details in this guide have been very heavily inspired by several existing st
 ## Table of Contents
 
 * [The CoffeeScript Style Guide](#guide)
+    * [Code Structure (TO BE DISCUSSED)](#code_structure)
+        * [Breaking Code in Files](#breaking_in_files)
+        * [Classes](#classes)
     * [Code Layout](#code_layout)
         * [Tabs or Spaces?](#tabs_or_spaces)
         * [Maximum Line Length](#maximum_line_length)
@@ -42,6 +45,68 @@ The details in this guide have been very heavily inspired by several existing st
     * [Exceptions](#exceptions)
     * [Annotations](#annotations)
     * [Miscellaneous](#miscellaneous)
+
+<a name="code_layout"/>
+## Code Structure
+
+Let's discuss what would be the best practices in structuring the code. These are only my own suggestions.
+
+If you doubt, should you split the code in functions - do split
+TODO more resolves like this in case of doubts
+
+<a name="breaking_in_files"/>
+## Breaking Code in Files
+TODO to discuss
+
+<a name="classes"/>
+## Classes
+TODO to discuss more
+
+* Class  methods*
+All the methods that are only used in the given class and not anywhere else (private methods) should start with _.
+All the rest follow normal naming conventions.
+
+Methods should be defined in the agreed order, so that it is easier for developers to read the class definitions, if it is written in the same way.
+I suggest that methods should appear in the class in order of use, as when they supposed to be used externally. This makes it possible to read a class linearly from end-to-end without need of jumping there and back.
+
+```
+class Chart
+   # Always first, as it called first
+   constructor: ->
+      @constructBody()
+      console.log "Chart initialized"
+   
+   # Should follow immediately after method was mentioned in the class   
+   constructBody: ->
+      console.log "body initialized"
+   
+   setSize: (width, height) ->
+      console.log "Setting size"
+      
+   render: ->
+      @renderBody()
+      @renderDatapoints()
+      console.log "Rendering"
+   
+   renderBody: ->
+      @renderPartA()
+      @renderPartB()
+   
+   # Defined in order, as used in renderBody
+   renderPartA: ->
+   
+   # Defined in order, as used in renderBody
+   renderPartB: ->
+   
+   # Now continuing to define other methods in @render()
+   renderDatapoints: ->
+   
+      
+a = new Chart
+a.setSize 50, 100
+a.render()
+```
+
 
 <a name="code_layout"/>
 ## Code layout

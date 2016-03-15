@@ -23,6 +23,7 @@ The details in this guide have been very heavily inspired by several existing st
 * [The CoffeeScript Style Guide](#guide)
     * [Code Structure (TO BE DISCUSSED)](#code_structure)
         * [Breaking Code in Files](#breaking_in_files)
+        * [Exporting stuff](#exporting_stuff)
         * [Classes](#classes)
     * [Code Layout](#code_layout)
         * [Tabs or Spaces?](#tabs_or_spaces)
@@ -57,6 +58,13 @@ TODO more resolves like this in case of doubts
 <a name="breaking_in_files"/>
 ## Breaking Code in Files
 TODO to discuss
+
+<a name="exporting_stuff"/>
+When using node modules/broserify, all exports must be places explicitly in the end of the file. This way everybody knows quickly  what is exported. module.exports should be reassigned to reassure that no exports.foo are done somewhere inbetween the lines in the middle of the sourcefile. For example:
+```
+module.exports =
+  ManhattanChart : ManhattanChart
+```
 
 <a name="classes"/>
 ## Classes
